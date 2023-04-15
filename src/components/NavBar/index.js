@@ -3,6 +3,7 @@ import styles from './styles.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import SearchComponent from '../SearchComponent/indix';
+import NavBarShare from '../NavBarShare';
 
 export default function NavBar() {
 
@@ -13,6 +14,7 @@ export default function NavBar() {
 
     return (
         <div className={styles.wholeCont} onClick={e => setOpenSearchModal(false)}>
+            <NavBarShare />
             <div className={styles.topCont}>
                 <Link href='/' className={styles.logoCont}>
                     <img src='/logo.png' alt='logo'  className={styles.logoImg} />
