@@ -76,6 +76,79 @@
     min-height: 40vh;
     max-height: 65vh;
     border-top: 1px solid #6c6c6c;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.searchResultModals {
+    width: 50%;
+    min-height: 40vh;
+    max-height: 65vh;
+    padding: 1vh;
+}
+
+.searchModalTitles{
+    width: max-content;
+    font-size: 0.75rem;
+    color: #6c6c6c;
+    margin: 2vh 0 ;
+    border-bottom: 1px solid #6c6c6c;
+}
+
+.searchScrollingBox{
+    width: 100%;
+    min-height: 10vh;
+    max-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow-y: scroll;
+}
+.searchScrollingBox::-webkit-scrollbar {
+    width: 5px;
+    height: 45vh;
+}
+
+.searchScrollingBox::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #00604d91;
+    border-radius: 10px;
+}
+
+.searchScrollingBox::-webkit-scrollbar-thumb {
+    background: #00604d91;
+    border-radius: 12px;
+}
+
+.searchScrollingBox::-webkit-scrollbar-thumb:hover {
+    background: #e7e7e7;
+}
+
+.eachSearchResultBox {
+    width: 100%;
+    min-height: 5vh;
+    margin: 0;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.eachSearchResultBox:hover{
+    background-color: #e7e7e7;
+}
+
+.trendingIconImg{
+    width: 4vh;
+    height: 4vh;
+    margin-right: 2vh;
+}
+
+.eachSearchResult{
+    color: #6c6c6c;
+    font-size: 0.75rem;
+    margin: 0;
 }
 
 @keyframes openSearchModal {

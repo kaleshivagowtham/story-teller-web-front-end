@@ -1,20 +1,41 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import styles from './styles.module.css';
 
 export default function SearchComponent(props) {
 
+    useEffect(() => {
+        setTimeout(() => {
+            getTrendingBlogs();
+        },1000)
+    })
+
+    const [searchResult , setSearchResult] = useState([]);
+    const [trendingSearch , setTrendingSearch] = useState([]);
+
+    const testUrl = 'https://jsonplaceholder.typicode.com/posts';
+
     const searchHandler = (e) => {
         props.setSearchText(e.target.value);
-        //write fetch function
+        fetchSearchResultHandler();
     }
 
     const searchIconClickHandler = (e) => {
-        props.openSearchModal ? fetchHandler() : props.setOpenSearchModal(true) ;
+        props.openSearchModal ? fetchSearchResultHandler() : props.setOpenSearchModal(true);
     }
 
-    const fetchHandler = () => {
-        console.log(props.searchText);
-        //write fetch function and add link
+    const getTrendingBlogs = async () => {
+        const response = await fetch(testUrl)
+            .then(res => res.json())
+            .catch( err => console.log(err));
+        setTrendingSearch(response);
+    }
+
+    const fetchSearchResultHandler = async () => {
+        const response = await fetch(testUrl)
+            .then(res => res.json())
+            .catch( err => console.log(err));
+        setSearchResult(response);
+        console.log(response);
     }
 
     return (
@@ -31,8 +52,33 @@ export default function SearchComponent(props) {
                     onClick={e => searchIconClickHandler(e)}
                  />
             </div>
-            {props.openSearchModal && <div className={styles.searchModal}>
-
+            {searchResult && props.openSearchModal && <div className={styles.searchModal}>
+                <div className={styles.searchResultModals}>
+                    <p className={styles.searchModalTitles}>Search results</p>
+                    <div className={styles.searchScrollingBox}>
+                        {searchResult.map((item) => {
+                            return(
+                                <div key={item} className={styles.eachSearchResultBox}>
+                                    {/* <img src='/trendingIcon.png' className={styles.trendingIconImg}/> */}
+                                    <p className={styles.eachSearchResult}>{item.title}</p>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+                <div className={styles.searchResultModals}>
+                    <p className={styles.searchModalTitles}>Trending </p>
+                    <div className={styles.searchScrollingBox}>
+                        {trendingSearch.map((item) => {
+                            return(
+                                <div key={item} className={styles.eachSearchResultBox}>
+                                    <img src='/trendingIcon.png' className={styles.trendingIconImg}/>
+                                    <p className={styles.eachSearchResult}>{item.title}</p>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
             </div>}
         </div>
     )

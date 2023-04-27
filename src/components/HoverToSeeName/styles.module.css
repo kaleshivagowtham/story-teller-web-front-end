@@ -1,0 +1,37 @@
+.nameOfTheIconCont {
+    position: absolute;
+    width: max-content;
+    height: 1.5rem;
+    left: 8vh;
+    padding: 1vh 2.5vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+}
+
+.eachMenuOptionContUnselected:hover .nameOfTheIconCont {
+    display: flex;
+}
+
+.eachMenuOptionContSelected:hover .nameOfTheIconCont {
+    display: flex;
+}
+
+.nameOfTheIcon {
+    color: #ffffff;
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+.nameOfTheIconContArrow {
+    position: absolute;
+    height: 60%;
+    aspect-ratio: 1/1;
+    width: auto;
+    left: -1vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    transform: rotate(45deg);
+}
