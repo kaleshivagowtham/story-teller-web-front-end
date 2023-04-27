@@ -1,5 +1,5 @@
 .wholeCont{
-    position: absolute;
+    position: fixed;
     width: 5vh;
     height: 30vh;
     right: 0;
@@ -9,34 +9,31 @@
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-start;
-    background-color: #000000;
 }
 
 .eachMediaCont{
-    width: 100%;
+    position: relative;
     height: 6vh;
     cursor: pointer;
-    background-size: auto 60%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: rgb(21, 223, 38);
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .eachMediaCont:hover{
-    width: 200%;
     animation : shareSlideExtend 0.5s forwards linear;
 }
-.eachMediaCont:active {
-    background-size: auto 70%;
+
+.eachMediaImage{
+    width: 50%;
+    height: auto;
 }
 
 @keyframes shareSlideExtend {
     0%{
-        width: 100%;
-        background-size: auto 60%;
+        width: 5vh;
     }
     100%{
-        width: 200%;
-        background-size: auto 80%;
+        width: 10vh;
+        border-radius: 5px 0 0 5px;
     }
 }

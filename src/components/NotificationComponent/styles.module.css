@@ -1,0 +1,49 @@
+.wholeCont{
+    position: fixed;
+    width: 40vh;
+    height: 15vh;
+    top: 6vh;
+    padding: 1vh;
+    border-radius: 5px;
+    background-color: rgba(0, 72, 96, 1);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 1002;
+    box-shadow: 17px 17px 34px #b3b3b3,-17px -17px 34px #ffffff;
+    animation: openNotification 0.5s forwards linear;
+}
+
+.messageCont{
+    width: 32vh;
+    max-height: 13vh;
+}
+
+.notificationMessage{
+    color: #ffffff;
+    color: 0.75rem;
+    margin: 0;
+}
+
+.crossIcon{
+    position: fixed;
+    height: 5vh;
+    width: auto;
+    right: 2.5vh;
+    cursor: pointer;
+    transform: rotate(45deg);
+}
+.crossIcon:active{
+    height: 4.5vh;
+    width: auto;
+    padding: 0.25vh;
+}
+
+@keyframes openNotification {
+    0%{
+        right: -42vh;
+    }
+    100%{
+        right: 2vh;
+    }
+}

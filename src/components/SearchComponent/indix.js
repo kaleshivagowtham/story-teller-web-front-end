@@ -4,7 +4,9 @@ import styles from './styles.module.css';
 export default function SearchComponent(props) {
 
     useEffect(() => {
-        getTrendingBlogs();
+        setTimeout(() => {
+            getTrendingBlogs();
+        },1000)
     })
 
     const [searchResult , setSearchResult] = useState([]);

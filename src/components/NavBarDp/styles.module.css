@@ -1,0 +1,44 @@
+.wholeCont1{
+    position: fixed;
+    width: 25vh;
+    height: 16vh;
+    background-color: #ffffff;
+    left: 8vh;
+    bottom: 4vh;
+    padding: 1vh 2vh;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.eachProfileOption{
+    width: 100%;
+    height: 8vh;
+    font-size: 1rem;
+    color: #535353;
+    margin: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    text-indent: 1vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.signoutIcon{
+    height: 70%;
+    width: auto;
+    margin-left: 1.5vh;
+}
+
+.eachProfileOption:hover{
+    background-color: #dddddd;
+}
+
+.eachProfileOption:active .signoutIcon{
+    height: 50%;
+    width: auto;
+}
