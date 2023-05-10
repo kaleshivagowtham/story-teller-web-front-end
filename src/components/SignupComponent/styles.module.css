@@ -1,0 +1,239 @@
+.wholeCont{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.cont{
+    width: 105vh;
+    height: 85vh;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 40px 4px #000000;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.registerText{
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 2.5vh 0;
+    color: #6a6a6a;
+}
+
+.midCont{
+    width: 90%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.midLCont{
+    width: 55%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.usernameCont{
+    position: relative;
+    width: 100%;
+    height: 11vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.redWarningText{
+    position: absolute;
+    color: red;
+    font-size: 0.8rem;
+    top: 7.5vh;
+}
+
+.usernameTitle{
+    position: absolute;
+    width: max-content;
+    height: 3.5vh;
+    top: 1vh;
+    padding-top: 0.5vh;
+    color: #6a6a6a;
+    background-color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 1vh;
+    animation: titleSlideUp 0.25s forwards ease-in ;
+}
+
+.usernameInput {
+    position: relative;
+    width: 90%;
+    height: 6vh;
+    top: 3.5vh;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-size: 1rem;
+    text-indent: 1vh;
+    color: #6a6a6a;
+    outline: none;
+}
+
+.orText{
+    width: max-content;
+    height: auto;
+    margin: 0;
+    color: #6a6a6a;
+}
+
+.midRCont{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.authTitle{
+    color: #6a6a6a;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.eachAuthCont{
+    width: 90%;
+    height: 8vh;
+    border: 2.5px solid black;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 2vh 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.eachAuthCont:hover{
+    background-color: #000000;
+}
+.eachAuthCont:active{
+    border: 2.5px solid #ffffff;
+    box-shadow: 0 0 40px 4px #000000;
+}
+
+.authImg{
+    width: 6.5vh;
+    height: 6.5vh;
+    border-radius: 50%;
+    margin-left: 2vh;
+}
+
+.eachAuthText{
+    width: 70%;
+    height: 100%;
+    margin: 0 2vh;
+    color: #6a6a6a;
+    font-size: 1rem;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.eachAuthCont:hover .eachAuthText{
+    color: #ffffff;
+}
+.eachAuthCont:active .eachAuthText{
+    color: #6a6a6a;
+}
+
+.alreadyRegText{
+    width: max-content;
+    height: auto;
+    margin: 5vh 0 0 0;
+    color: #6a6a6a;
+}
+
+.loginCont{
+    width: 90%;
+    height: 8vh;
+    border: 2.5px solid black;
+    background-color: #000000;
+    border-radius: 25px;
+    color: #ffffff;
+    cursor: pointer;
+    margin: 2vh 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.loginCont:hover{
+    background-color: #ffffff;
+}
+.loginContText{
+    width: 70%;
+    height: 100%;
+    margin: 0 2vh;
+    color: #ffffff;
+    font-size: 1rem;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loginCont:active{
+    background-color: #000000;
+}
+.loginCont:hover .loginContText {
+    color: #000000;
+}
+
+.loginCont:active .loginContText {
+    color: #ffffff;
+}
+
+.submitButton{
+    width: 25vh;
+    height: 6vh;
+    border-radius: 25px;
+    background-color: black;
+    color: #ffffff;
+    font-size: 1rem;
+    margin-top: 1.5vh;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.submitButton:hover{
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: 600;
+    border: 2.5px solid #000000;
+}
+.submitButton:active{
+    background-color: black;
+    color: #ffffff;
+}
+
+@keyframes titleSlideUp {
+    0%{
+        top: 2.5vh;
+        font-size: 1.25rem;
+        font-weight: 400;
+    }
+    100%{
+        top: 1vh;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+}

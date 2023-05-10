@@ -1,6 +1,7 @@
 .wholeCont{
     position: relative;
-    width: 100%;
+    width: calc(100% - 8vh);
+    left: 8vh;
     height: 50vh;
     background-image: url('../../../public/footer.jpg');
     background-size: auto 100%;

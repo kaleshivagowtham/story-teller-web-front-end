@@ -1,0 +1,33 @@
+.wholeCont{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 11;
+}
+
+.loadingCont{
+    width: 15vh;
+    height: 15vh;
+    border-radius: 50%;
+    /* background-color: #ffffff; */
+    animation: rotator 1.5s infinite ease-in-out;
+}
+
+@keyframes rotator {
+    0% {
+        border-top: 15px solid #af1212;
+    }
+    33% {
+        border-right: 15px solid #af1212;
+    }
+    66% {
+        border-bottom: 15px solid #af1212;
+    }
+    100% {
+        border-left: 15px solid #af1212;
+    }
+}

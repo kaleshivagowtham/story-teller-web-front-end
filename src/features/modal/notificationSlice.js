@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
     isNotificationOpen : false,
+    notifiMessage : ''
 }
 
 const notificationSlice = createSlice({
@@ -11,9 +12,11 @@ const notificationSlice = createSlice({
     reducers : {
         closeNotification : (state) => {
             state.isNotificationOpen = false;
+            state.notifiMessage = '';
         },
-        openNotification : (state) => {
+        openNotification : (state , action) => {
             state.isNotificationOpen = true;
+            state.notifiMessage = action.payload;
             // setTimeout(() => {
             //     notificationSlice.caseReducers.closeNotification();
             // },2000)

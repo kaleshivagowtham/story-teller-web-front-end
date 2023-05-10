@@ -9,9 +9,9 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    z-index: 1002;
     box-shadow: 17px 17px 34px #b3b3b3,-17px -17px 34px #ffffff;
     animation: openNotification 0.5s forwards linear;
+    z-index: 10;
 }
 
 .messageCont{

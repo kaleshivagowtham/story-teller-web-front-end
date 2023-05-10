@@ -9,7 +9,6 @@
     display: none;
     align-items: center;
     justify-content: center;
-    z-index: 1001;
 }
 
 .eachMenuOptionContUnselected:hover .nameOfTheIconCont {

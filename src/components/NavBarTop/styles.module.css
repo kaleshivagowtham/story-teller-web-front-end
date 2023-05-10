@@ -1,0 +1,83 @@
+.wholeCont {
+    position: fixed;
+    width: 100%;
+    height: 10vh;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+.logoImg {
+    width: 5vh;
+    height: auto;
+
+}
+
+.nameCont {
+    width: 40vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.logoName {
+    width: max-content;
+    height: auto;
+    margin: 0;
+    color: #004f3f;
+    font-size: 2rem;
+    user-select: none;
+}
+
+.logoSlogan {
+    width: max-content;
+    height: auto;
+    margin: 0;
+    color: #004f3f;
+    font-size: 0.75rem;
+    user-select: none;
+}
+
+.logoCont {
+    width: 8vh;
+    height: 100%;
+    background-color: #004f3f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@keyframes openNavBar {
+    0% {
+        width: 0;
+        visibility: hidden;
+    }
+
+    50% {
+        visibility: hidden;
+    }
+
+    100% {
+        width: 35vh;
+        border-radius: 12px;
+        box-shadow: #ffffff;
+        visibility: visible;
+    }
+}
+
+@media screen and (max-width : 800px) {}
+
+@media screen and (max-width : 500px) {
+    .nameCont {
+        width: max-content;
+        padding: 0 2vh;
+    }
+}
+
+@media screen and (max-width : 400px) {}
+

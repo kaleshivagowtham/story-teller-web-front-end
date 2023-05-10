@@ -33,7 +33,7 @@ export default function NavBar() {
         
     },[]);
 
-    if(typeof window !== undefined && window.scrollY > 100)
+    if(typeof window === undefined && window.scrollY > 100)
         setScrolled(true);
 
     return (
@@ -76,6 +76,11 @@ export default function NavBar() {
                         onClick={e => setSelected('search')}>
                         <img src={selected === 'search' ?'/searchIcon-green.png' : '/searchIcon.png'} className={styles.eachMenuOptionImg} />
                         <HoverToSeeName name='Search'/>
+                    </div>
+                    <div className={`${selected === 'writeBlog' ? styles.eachMenuOptionContSelected : styles.eachMenuOptionContUnselected}`}
+                        onClick={e => setSelected('writeBlog')}>
+                        <img src={selected === 'writeBlog' ?'/writeBlogIcon-green.png' : '/writeBlogIcon.png'} className={styles.eachMenuOptionImg} />
+                        <HoverToSeeName name='writeBlog'/>
                     </div>
                     { 
                         isLoggedIn
