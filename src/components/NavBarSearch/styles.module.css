@@ -1,0 +1,116 @@
+.wholeCont {
+    width: 100%;
+    height: 100%;
+    padding: 1vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.contTitle {
+    width: 90%;
+    height: 6vh;
+    font-size: 1rem;
+    color: rgb(0, 96, 72);
+    border-radius: 12px;
+    border-bottom: 2px solid #ffffff;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.searchCont{
+    width: 90%;
+    height: 6vh;
+    background-color: #ffffff;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchInput{
+    width: 80%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    text-indent: 1vh;
+    color: rgb(0, 96, 72);
+    font-size: 1rem;
+}
+
+.searchImgCont{
+    padding: relative;
+    width: 5.5vh;
+    height: 5.5vh;
+    border-radius: 50%;
+    animation : searchIconVisibility 0.5s forwards linear;
+    background-color: #00604c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchImg{
+    height: 60%;
+    width: auto;
+}
+.searchImgCont:active .searchImg{
+    width: 4.5vh;
+    height: 4.5vh;
+    margin: 0.5vh;
+}
+.optionsCont {
+    width: 95%;
+    min-height: 40%;
+    max-height: 70%;
+    background-color: rgba(225,225,225,0.5);
+    border-radius: 12px;
+    margin-top: 2.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: scroll;
+}
+
+.eachSearchResultCont{
+    width: 95%;
+    min-height: 4.5vh;
+    max-height: 4.5vh;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+.eachSearchResult{
+    color: #00604c;
+    font-size: 1rem;
+    margin: 0;
+    text-indent: 1vh;
+}
+.eachSearchResultCont:hover{
+    background-color: #ffffff;
+}
+
+@keyframes searchIconVisibility {
+    0%{
+        opacity: 0;
+    }
+    90%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

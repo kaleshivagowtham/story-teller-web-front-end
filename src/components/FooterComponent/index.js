@@ -5,6 +5,7 @@ export default function FooterComponent() {
 
     return(
         <div className = {styles.wholeCont}>
+            <img src='/ufo.png' className={styles.ufoImg} />
             <div className = {styles.topCont}>
                 
             </div>

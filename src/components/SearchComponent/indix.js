@@ -1,5 +1,7 @@
 import {useEffect, useState} from 'react';
 import styles from './styles.module.css';
+import {useDispatch , useSelector} from 'react-redux';
+import { closeSearchModal, openSearchModal } from '../../features/modal/searchModalSlice';
 
 export default function SearchComponent(props) {
 
@@ -8,6 +10,10 @@ export default function SearchComponent(props) {
             getTrendingBlogs();
         },1000)
     })
+
+    const dispatch = useDispatch();
+
+    const {isSearchModalOpen} = useSelector(store => store.searchModal);
 
     const [searchResult , setSearchResult] = useState([]);
     const [trendingSearch , setTrendingSearch] = useState([]);
@@ -20,7 +26,7 @@ export default function SearchComponent(props) {
     }
 
     const searchIconClickHandler = (e) => {
-        props.openSearchModal ? fetchSearchResultHandler() : props.setOpenSearchModal(true);
+        isSearchModalOpen ? fetchSearchResultHandler() : dispatch(openSearchModal());
     }
 
     const getTrendingBlogs = async () => {
@@ -39,20 +45,20 @@ export default function SearchComponent(props) {
     }
 
     return (
-        <div className={`${props.openSearchModal ? styles.wholeContSelected : styles.wholeCont}`} 
-            onClick={e => {e.stopPropagation();props.setOpenSearchModal(true)}}>
+        <div className={`${isSearchModalOpen ? styles.wholeContSelected : styles.wholeCont}`} 
+            onClick={e => {e.stopPropagation();dispatch(openSearchModal())}}>
             <div className={styles.searchCont}>
                 <input placeholder='Search'
-                    className={`${props.openSearchModal ? styles.searchBoxSelected : styles.searchBox}`}
+                    className={`${isSearchModalOpen ? styles.searchBoxSelected : styles.searchBox}`}
                     onChange={e => searchHandler(e)}
                 />
-                <img src={props.openSearchModal ? '/searchIcon-green.png' :'/searchIcon.png'}
+                <img src={isSearchModalOpen ? '/searchIcon-green.png' :'/searchIcon.png'}
                     className={styles.searchIcon} 
                     alt='Search Icon'
                     onClick={e => searchIconClickHandler(e)}
                  />
             </div>
-            {searchResult && props.openSearchModal && <div className={styles.searchModal}>
+            {searchResult && isSearchModalOpen && <div className={styles.searchModal}>
                 <div className={styles.searchResultModals}>
                     <p className={styles.searchModalTitles}>Search results</p>
                     <div className={styles.searchScrollingBox}>

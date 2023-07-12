@@ -5,6 +5,11 @@
 }
 
 .layoutCont{
+    width: calc(100% - 8vh);
+    margin-left: 8vh;
+    min-height: 100vh;
+    left: 8vh;
+    top: 10vh;
     display: flex;
     flex-direction: column;
 }
