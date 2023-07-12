@@ -36,7 +36,7 @@ export default function NavBarSearch({searchRes , setSearchRes , searchText, set
             <div className={styles.searchCont}>
                 <input className={styles.searchInput} onChange={e => searchHandler(e)} />
                 <div className={styles.searchImgCont}>
-                    <img src='/searchIcon-green.png' className={styles.searchImg}/>
+                    <img src='/searchIcon.png' className={styles.searchImg}/>
                 </div>
             </div>
             <div className={styles.optionsCont}>

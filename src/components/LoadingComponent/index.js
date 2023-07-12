@@ -4,9 +4,7 @@ export default function LoadingComponent() {
 
     return (
         <div className={styles.wholeCont}>
-            <div className={styles.loadingCont}>
-
-            </div>
+            <img src='/logo.png' className={styles.loadingCont} />
         </div>
     )
 }

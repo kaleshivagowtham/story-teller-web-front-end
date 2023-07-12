@@ -87,7 +87,7 @@ export default function NavBar() {
                         ?
                             <div className={styles.bottomDpCont} onMouseEnter={e => setDpHover(true)}
                                         onMouseLeave={e => setDpHover(false)} >
-                                <Link href="/profile" >
+                                <Link href="/myprofile" >
                                     <div className={styles.dpImgCont}>
                                         <img src='/demoDpImg.png' className={styles.dpImg} />
                                     </div>

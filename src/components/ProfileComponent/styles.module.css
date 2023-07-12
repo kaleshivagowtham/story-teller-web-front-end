@@ -64,7 +64,7 @@
     border-radius: 50%;
 }
 
-.addDpImage{
+.uploadBtnCont{
     position: absolute;
     width: 8.5vh;
     height: 8.5vh;
@@ -72,6 +72,18 @@
     top: 22vh;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.uploadBtn{
+    position: absolute;
+    width: 8.5vh;
+    height: 8.5vh;
+    visibility: hidden;
+}
+
+.addDpImage{
+    width: 8.5vh;
+    height: 8.5vh;
 }
 .addDpImage:active{
     width: 7vh;

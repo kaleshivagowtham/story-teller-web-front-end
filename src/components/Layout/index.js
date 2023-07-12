@@ -34,7 +34,7 @@ export default function Layout({children}) {
             <NavBarSide />
             <NavBarShare />
             { loggedIn ? <NotificationComponent message='Login Successful' isNotificationOpen={loggedIn} setIsNotificationOpen={setLoggedIn} /> : null}
-            {/* { isNotificationOpen && <NotificationComponent message='abcaaaaa aaaaaa aaaaaa aaaaaa aaa aaa' />} */}
+            { isNotificationOpen && <NotificationComponent message='abcaaaaa aaaaaa aaaaaa aaaaaa aaa aaa' />}
             {   isLoginModalOpen && <LoginComponent />    }
             {   isSignupModalOpen && <SignupComponent />    }
             <div className={styles.layoutCont}>

@@ -12,7 +12,7 @@ export default function NavBarDp() {
     return (
         <div className={styles.wholeCont1}>
             <Link className={styles.eachProfileOption}
-                href='/profile'>
+                href='/myprofile'>
                 {userName}
             </Link>
             <p className={styles.eachProfileOption}

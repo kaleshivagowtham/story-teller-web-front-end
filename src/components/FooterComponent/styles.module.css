@@ -23,3 +23,32 @@
     height: 5vh;
     background-color: #000000;
 }
+
+.ufoImg {
+    position: absolute;
+    width: 15vh;
+    height: auto;
+    bottom: 90%;
+    animation: ufoSliding 10s infinite ease-in-out;
+}
+
+@keyframes ufoSliding {
+    0%{
+        transform: rotate(0deg);
+        left: 0;
+    }
+    15%{
+        transform: rotate(25deg);
+    }
+    50%{
+        transform: rotate(0deg);
+        left: calc(100% - 15vh);
+    }
+    85% {
+        transform: rotate(-25deg);
+    }
+    100%{
+        transform: rotate(0deg);
+        left: 0;
+    }
+}

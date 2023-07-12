@@ -156,11 +156,11 @@ export default function SignupComponent() {
                     <div className={styles.midRCont}>
                         {/* <h4 className={styles.authTitle}>Authentication</h4> */}
                         <div className={styles.eachAuthCont}>
-                            <img src='/demoDpImg.png' className={styles.authImg}/>
+                            <img src='/google_auth.png' className={styles.authImg}/>
                             <p className={styles.eachAuthText}>Google</p>
                         </div>
                         <div className={styles.eachAuthCont}>
-                            <img src='/demoDpImg.png' className={styles.authImg}/>
+                            <img src='/facebookLogo.png' className={styles.authImg} style={{backgroundColor:'#4267B2'}}/>
                             <p className={styles.eachAuthText}>facebook</p>
                         </div>
                         {/* <div className={styles.eachAuthCont}>

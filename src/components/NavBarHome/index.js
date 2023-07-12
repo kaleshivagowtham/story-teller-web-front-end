@@ -13,19 +13,19 @@ export default function NavBarHome() {
         <div className={styles.wholeCont}>
             <p className={styles.contTitle}>Home</p>
             <div className={styles.optionsCont}>
-                <Link href='/profile' className={styles.eachOptionCont} 
+                <Link href='/myprofile' className={styles.eachOptionCont} 
                     onClick={e => dispatch(setSelected('home'))}>
                     <p className={styles.eachOption}>Profile</p>
                 </Link>
-                <Link href='/profile' className={styles.eachOptionCont} 
+                <Link href='/myprofile' className={styles.eachOptionCont} 
                     onClick={e => dispatch(setSelected('home'))}>
                     <p className={styles.eachOption}>Option 2</p>
                 </Link>
-                <Link href='/profile' className={styles.eachOptionCont} 
+                <Link href='/myprofile' className={styles.eachOptionCont} 
                     onClick={e => dispatch(setSelected('home'))}>
                     <p className={styles.eachOption}>Option 3</p>
                 </Link>
-                <Link href='/profile' className={styles.eachOptionCont} 
+                <Link href='/myprofile' className={styles.eachOptionCont} 
                     onClick={e => dispatch(setSelected('home'))}>
                     <p className={styles.eachOption}>Option 4</p>
                 </Link>

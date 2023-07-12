@@ -53,10 +53,14 @@
     height: 5.5vh;
     border-radius: 50%;
     animation : searchIconVisibility 0.5s forwards linear;
+    background-color: #00604c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .searchImg{
-    height: 100%;
+    height: 60%;
     width: auto;
 }
 .searchImgCont:active .searchImg{

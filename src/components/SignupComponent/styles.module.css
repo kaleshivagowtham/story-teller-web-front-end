@@ -132,8 +132,9 @@
 }
 
 .authImg{
-    width: 6.5vh;
-    height: 6.5vh;
+    width: 5vh;
+    height: 5vh;
+    padding: 0.5vh;
     border-radius: 50%;
     margin-left: 2vh;
 }

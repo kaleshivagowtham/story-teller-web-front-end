@@ -1,0 +1,146 @@
+.wholeCont{
+    position: relative;
+    width: 95%;
+    height: 60vh;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+}
+.wholeCont::-webkit-scrollbar{
+    display: none;
+}
+
+.arrowsCont {
+    position: absolute;
+    height: 20vh;
+    width: 8vh;
+    /* top: 50%; */
+    transform: translate(0%,0%);
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+    cursor: pointer;
+}
+
+.arrows {
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 0;
+    user-select: none;
+}
+
+.arrowsCont:active .arrows {
+    font-size: 1.5rem;
+}
+
+.titleContSlideIn {
+    position: relative;
+    width: 97.5%;
+    height: 60vh;
+    border-radius: 12px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: slideIn 3s forwards ease-in;
+}
+
+.titleContSlideOut {
+    position: relative;
+    width: 97.5%;
+    height: 60vh;
+    border-radius: 12px;
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    animation: slideOut 3s forwards ease-in;
+}
+
+.titleInfoCont {
+    position: absolute;
+    width: 75%;
+    height: 15vh;
+    bottom: 1vh;
+    margin-left: 5%;
+    padding: 1vh;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+.titleInfoCont:hover {
+    height: auto;
+}
+
+.titleInfoCont:hover .eachDescCont {
+    height: auto;
+}
+
+.eachTitle {
+    width: max-content;
+    height: 8vh;
+    font-size: 1.75rem;
+    margin: 0;
+}
+
+.eachDescCont {
+    width: 100%;
+    height: 7vh;
+    max-height: 22vh;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+}
+
+.eachDesc {
+    width: 100%;
+    height: 100%;
+    font-size: 0.75rem;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+@keyframes slideOut {
+    0%{
+        transform: translate(100%, 0);
+    }
+    100%{
+        /* left: -100%; */
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        /* left: 102.5%; */
+        transform: translate(200%, 0);
+    }
+    40%{
+        transform: translate(100% , 0);
+    }
+    60%{
+        transform: translate(100%, 0);
+    }
+    100% {
+        /* left: 0%; */
+        transform: translate(0%, 0);
+    }
+}
+
+@media screen and (max-width : 750px) {
+    .wholeCont{
+        width: 100%;
+    }
+    .titleContSlideIn{
+        border-radius: 0;
+    }
+    .arrowsCont{
+        transform: translate(0%, 0%);
+    }
+}

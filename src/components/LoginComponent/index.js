@@ -7,6 +7,7 @@ import { useState } from 'react';
 import {loginAction} from '../../features/modal/loginSlice';
 import NotificationComponent from '../NotificationComponent';
 import ForgotPasswordComponent from '../ForgotPasswordComponent';
+import useLocalStorage from '../../utils/useLocalStorage';
 
 export default function LoginComponent() {
 
@@ -38,9 +39,9 @@ export default function LoginComponent() {
         .then(res => res.json())
         .then( json => {
             console.log(json);
-            if(json === 'Login successful')
+            if(json.loginSuccessFul === 'Login successful')
             {
-                dispatch(loginAction(username));
+                dispatch(loginAction({username : username , accessToken : json.accessToken}));
                 dispatch(closeLoginModal());
                 setLoggedIn(true);
             }
