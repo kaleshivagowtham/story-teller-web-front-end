@@ -79,7 +79,9 @@ export default function HomeNotLoggedIn() {
         const response = fetch( trendingTitleAPI)
         .then(res => res.json)
         .then(JSON => {
+            if(JSON.trending)
             setTrending(JSON.trending);
+            if(JSON.trendingTags)
             setTrendingTags(JSON.trendingTags);
         })
         .catch(err => console.log(err))
