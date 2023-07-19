@@ -19,8 +19,11 @@ export default function ProfileComponent() {
             },50)}
     },[isLoginModalOpen , isLoggedIn]);
 
+    const formData = new FormData();
+
     const [backGroundImage , setBackGroundImage] = useState(null);
     const [dpImg , setDpImg] = useState('');
+    const [uploadedDp , setUploadedDp] = useState('');
     const [dpUploadStatus , setDpUploadStatus] = useState();
     const [userFullName , setUserFullName] = useState('Shiva Gowtham Kale');
     const [userTagLine , setUserTagLine] = useState('Be the best');
@@ -30,23 +33,22 @@ export default function ProfileComponent() {
     }
 
     const response = useMemo(() => {
-        console.log(dpImg);
-        const formData = new FormData();
-        formData.append('image' , dpImg);
-        console.log(formData);
+        console.log('formdata : ',formData);
         fetch( dpUploadAPI , {
             method : 'POST',
-            body : formData,
-            headers : {
-                "Content-Type" : "application/json"
-            }
+            body : formData
         }).then(res => res.json())
         .then(JSON => {
             console.log(JSON);
             setDpUploadStatus(JSON);
         })
         .catch(err => console.log(err));
-    },[dpImg]);
+    },[formData]);
+
+    const fdata = useMemo(() => {
+        console.log(dpImg);
+        formData.append('image' , dpImg);
+    },[dpImg])
 
     return (
         <div className={styles.wholeCont}>

@@ -1,22 +1,25 @@
+import React from "react";
 
+const useLocalStorage = {
 
+    setItemInLocalStorage : (item ) => {
+        if (typeof window !== 'undefined')
+            localStorage.setItem(item.key , item.value);
+    },
 
-const useLocalStorage = (item) => {
+    getItemFromLocalStorage : (item) => {
+        if (typeof window !== 'undefined')
+            localStorage.getItem(item);
+    },
 
-    setItemInLocalStorage : {
-        localStorage.setItem(item.key , item.value);
-    }
+    removeItemFromLocalStorage : (item) => {
+        if (typeof window !== 'undefined')
+            localStorage.removeItem(item);
+    },
 
-    getItemFromLocalStorage : {
-        localStorage.getItem(item);
-    }
-
-    removeItemFromLocalStorage : {
-        localStorage.removeItem(item);
-    }
-
-    clearLocalStorage : {
-        localStorage.clear();
+    clearLocalStorage : () => {
+        if (typeof window !== 'undefined')
+            localStorage.clear();
     }
 }
 

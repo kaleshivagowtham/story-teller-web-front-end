@@ -9,11 +9,11 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      {isLoggedIn ?
+      {/* {isLoggedIn ?
         <HomeComponent />
-        :
+        : */}
         <HomeNotLoggedIn />
-      }
+      {/* } */}
     </div>
   )
 }

@@ -56,6 +56,11 @@ export default function NavBarSide() {
         // }
     },[]);
 
+    useEffect(() => {
+        if(typeof(window) != undefined )
+            console.log('loacalStorage',localStorage.getItem('jwt_auth_token'));
+    },[isLoggedIn]);
+
     return (
         <div className={styles.sideCont} onMouseLeave={e => dispatch(setHovered(selected))}>
             <div className={styles.closed}>

@@ -62,31 +62,50 @@
     top: 7.5vh;
 }
 
-.usernameTitle{
-    position: absolute;
-    width: max-content;
-    height: 3.5vh;
-    top: 1vh;
-    padding-top: 0.5vh;
-    color: #6a6a6a;
+.inputCont {
+    position: relative;
+    width: 50vh;
+    height: 8vh;
+    border: 2px solid #535353;
+    margin: 1.5vh 0;
+    border-radius: 5px;
+    background-color: #c7edf0;
     background-color: #ffffff;
-    font-size: 1rem;
-    font-weight: 500;
-    margin: 0 1vh;
-    animation: titleSlideUp 0.25s forwards ease-in ;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-.usernameInput {
-    position: relative;
-    width: 90%;
-    height: 6vh;
-    top: 3.5vh;
+.inputContClicked {
+    border: 2px solid #278a91;
+}
+
+.inputTitle {
+    position: absolute;
+    width: max-content;
+    padding: 0 1vh;
+    margin: 0;
+    color: #535353;
+    font-weight: 400;
+    background-color: #c7edf0;
     background-color: #ffffff;
     border-radius: 5px;
-    border: 1px solid black;
+    cursor: text;
+}
+
+.inputTitleClicked {
+    animation: titleSlideUp 0.5s forwards ease-in-out;
+}
+
+.inputBox {
+    width: 100%;
+    height: 100%;
     font-size: 1rem;
     text-indent: 1vh;
-    color: #6a6a6a;
+    color: #535353;
+    background-color: #c7edf0;
+    background-color: #ffffff;
+    border: none;
     outline: none;
 }
 
@@ -229,11 +248,13 @@
 @keyframes titleSlideUp {
     0%{
         top: 2.5vh;
+        left: 1vh;
         font-size: 1.25rem;
         font-weight: 400;
     }
     100%{
-        top: 1vh;
+        top: -2vh;
+        left: 1.5vh;
         font-size: 1rem;
         font-weight: 600;
     }

@@ -4,6 +4,7 @@ import styles from './styles.module.css';
 import {closeSignupModal} from '../../features/modal/signupModalSlice';
 import {openLoginModal} from '../../features/modal/loginModalSlice';
 import { openNotification } from '../../features/modal/notificationSlice';
+import useLocalStorage from '../../utils/useLocalStorage';
 
 export default function SignupComponent() {
 
@@ -16,11 +17,11 @@ export default function SignupComponent() {
     },[])
 
     const [currRef , setCurrRef] = useState('');
-    const [regDetails , setRegDetails] = useState({'username' : null,
-                                                    'email' : null,
-                                                    'password' : null,
-                                                    'fName' : null,
-                                                    'number' : null});
+    const [regDetails , setRegDetails] = useState({'username' : '',
+                                                    'email' : '',
+                                                    'password' : '',
+                                                    'fName' : '',
+                                                    'number' : ''});
     const [validateDetails , setValidateDetails] = useState({'username' : 'valid',
                                                             'email' : 'valid',
                                                             'password' : 'valid',
@@ -95,10 +96,11 @@ export default function SignupComponent() {
             .then(res => res.json())
             .then(JSON => {
                 console.log(JSON);
-                if(JSON === 'User saved successfully')
+                if(JSON.status === 'User saved successfully')
                 {
                     dispatch(openLoginModal());
                     dispatch(closeSignupModal());
+                    useLocalStorage.setItemInLocalStorage({"key" : "jwt_auth_token",value : JSON.jwt_auth_token})
                 }
                 if(JSON === 'The user already exists')
                 {
@@ -116,40 +118,29 @@ export default function SignupComponent() {
                 <h3 className={styles.registerText}>Registration</h3>
                 <div className={styles.midCont}>
                     <div className={styles.midLCont}>
-                        <label className={styles.usernameCont} onClick={e => {e.stopPropagation(),setCurrRef('curRefName')}} >
-                            <input className={styles.usernameInput} name='fName' onChange={e => changeHandler(e)}
-                                placeholder = {currRef === 'curRefName' ? null : 'full name'}
-                            />
+                        <label className={`${styles.inputCont} ${currRef === 'curRefName' || regDetails.fName !== '' ? styles.inputContClicked : ''}`} onClick={e => {e.stopPropagation(),setCurrRef('curRefName')}} >
+                            <input className={styles.inputBox} name='fName' onChange={e => changeHandler(e)}/>
                             {validateDetails.fName === 'empty' ? <p className={styles.redWarningText}>Please enter full name</p> : null}
-                            {currRef === 'curRefName' ? <h4 className={styles.usernameTitle}>full name</h4> : null}
+                            <h4 className={`${styles.inputTitle} ${currRef === 'curRefName' || regDetails.fName !== '' ? styles.inputTitleClicked : ''}`}>full name</h4>
                         </label>
-                        <label className={styles.usernameCont} onClick={e => {e.stopPropagation(),setCurrRef('curRefUsername')}} >
-                            <input className={styles.usernameInput} name='username' onChange={e => changeHandler(e)}
-                                placeholder = {currRef === 'curRefUsername' ? null : 'username'}
-                            />
-                            {validateDetails.username === 'empty' ? <p className={styles.redWarningText}>Please enter username</p> : null}
-                            {currRef ==='curRefUsername' ? <h4 className={styles.usernameTitle}>username</h4> : null}
+                        <label className={`${styles.inputCont} ${currRef === 'curRefUserName' || regDetails.username !== '' ? styles.inputContClicked : ''}`} onClick={e => {e.stopPropagation(),setCurrRef('curRefUserName')}} >
+                            <input className={styles.inputBox} name='username' onChange={e => changeHandler(e)}/>
+                            {validateDetails.username === 'empty' ? <p className={styles.redWarningText}>Please enter full name</p> : null}
+                            <h4 className={`${styles.inputTitle} ${currRef === 'curRefUserName' || regDetails.username !== '' ? styles.inputTitleClicked : ''}`}>username</h4>
                         </label>
-                        <label className={styles.usernameCont} onClick={e => {e.stopPropagation(),setCurrRef('curRefEmail')}} >
-                            <input className={styles.usernameInput} name='email' onChange={e => changeHandler(e)}
-                                placeholder = {currRef === 'curRefEmail' ? null : 'email'}
-                            />
+                        <label className={`${styles.inputCont} ${currRef === 'curRefEmail' || regDetails.email !== '' ? styles.inputContClicked : ''}`} onClick={e => {e.stopPropagation(),setCurrRef('curRefEmail')}} >
+                            <input className={styles.inputBox} name='email' onChange={e => changeHandler(e)}/>
                             {validateDetails.email === 'empty' ? <p className={styles.redWarningText}>Please enter email</p> : null}
-                            {currRef === 'curRefEmail' ? <h4 className={styles.usernameTitle}>email</h4> : null}
+                            <h4 className={`${styles.inputTitle} ${currRef === 'curRefEmail' || regDetails.email !== '' ? styles.inputTitleClicked : ''}`}>email</h4>
                         </label>
-                        <label className={styles.usernameCont} onClick={e => {e.stopPropagation(),setCurrRef('curRefPassword')}} >
-                            <input  className={styles.usernameInput} name='password' onChange={e => changeHandler(e)}
-                                placeholder = {currRef === 'curRefPassword' ? null : 'password'}
-                            />
+                        <label className={`${styles.inputCont} ${currRef === 'curRefPassword' || regDetails.password !== '' ? styles.inputContClicked : ''}`} onClick={e => {e.stopPropagation(),setCurrRef('curRefPassword')}} >
+                            <input  className={styles.inputBox} name='password' onChange={e => changeHandler(e)}/>
                             {validateDetails.password === 'empty' ? <p className={styles.redWarningText}>Please enter password</p> : null}
-                            {currRef === 'curRefPassword' ? <h4 className={styles.usernameTitle}>password</h4> : null}
+                            <h4 className={`${styles.inputTitle} ${currRef === 'curRefPassword' || regDetails.password !== '' ? styles.inputTitleClicked : ''}`}>password</h4>
                         </label>
-                        <label className={styles.usernameCont} onClick={e => {e.stopPropagation(),setCurrRef('curRefNumber')}} >
-                            <input  className={styles.usernameInput} name='number' onChange={e => changeHandler(e)}
-                                placeholder = {currRef === 'curRefNumber' ? null : 'number'}
-                            />
-                            {currRef === 'curRefNumber' /* || regDetails.number.number !== '' */
-                                ? <h4 className={styles.usernameTitle}>number</h4> : null}
+                        <label className={`${styles.inputCont} ${currRef === 'curReNumber' || regDetails.number !== '' ? styles.inputContClicked : ''}`} onClick={e => {e.stopPropagation(),setCurrRef('curRefNumber')}} >
+                            <input  className={styles.inputBox} name='number' onChange={e => changeHandler(e)}/>
+                            <h4 className={`${styles.inputTitle} ${currRef === 'curRefNumber' || regDetails.number !== '' ? styles.inputTitleClicked : ''}`}>number</h4>
                         </label>
                     </div>
                     <p className={styles.orText}>--OR--</p>

@@ -14,10 +14,11 @@ export default function NavBarTop() {
     const [openSearchModal , setOpenSearchModal] = useState(false);
     const [searchText , setSearchText] = useState('');
 
-    useEffect(() => {
-        // dispatch(openNotification());
+    // useEffect(() => {
+    //     if(typeof(window) != undefined )
+    //         console.log(localStorage.getItem('jwt_auth_token'));
         
-    },[]);
+    // },[]);
 
     if(typeof window === undefined && window.scrollY > 100)
         setScrolled(true);
