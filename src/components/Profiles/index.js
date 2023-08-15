@@ -7,7 +7,9 @@ export default function Profiles({profileId}) {
 
     const profileUrl = "http://localhost:5000/profileinfo";
 
-    const [profileInfo , setProfileInfo] = useState(null);
+    const [profileInfo , setProfileInfo] = useState({'fName' : null,
+                                                    'email' : null,
+                                                    'username' : null});
 
     useEffect(() => {
         const response = fetch(profileUrl , {
@@ -20,17 +22,30 @@ export default function Profiles({profileId}) {
             }
         })
         .then(res => res.json())
-        .then((data) => {
-            setProfileInfo(data);
-            console.log(profileInfo);
-        })
+        .then(JSON => setProfileInfo(JSON.user[0]))
         .catch(err => console.log(err));
     },[profileId])
 
+    console.log('profileInfo ',profileInfo);
+
     return(
         <div className={styles.wholeCont}>
-        {profileInfo === null && <LoadingComponent />}
-            <p className={styles.text}>{profileId}</p>
+        {/* {profileInfo.username === null && <LoadingComponent />} */}
+            <div className={styles.infoCard}>
+
+            </div>
+            <div className={styles.profileInformation}>
+                <div className={styles.imageCont} >
+                    {/* <img src={dpImg==='' ? '/demoDpImg.png' : `${dpImg}`} alt='Dp' className={styles.dpImage}/> */}
+                    <img src={'/demoDpImg.png'} alt='Dp' className={styles.dpImage}/>
+                </div>
+                <div className={styles.allInfoCont}>
+                    <div className={styles.nameCont}>
+                        <h3 className={styles.profileName}>{profileInfo['fName']}</h3>
+                        <p className={styles.tagLine}>{profileInfo['username']}</p>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

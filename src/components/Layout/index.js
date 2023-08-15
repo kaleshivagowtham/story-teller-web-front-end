@@ -41,10 +41,10 @@ export default function Layout({children}) {
         })
         .then(res => res.json())
         .then((JSON) => {
-            console.log(JSON.response);
+            console.log(JSON.username);
             JSON.response === 'loggedIn'
             ? 
-              dispatch(loginAction({'accessToken' : `${useLocalStorage.getItemFromLocalStorage('jwt_auth_token')}`}))
+              dispatch(loginAction({'accessToken' : `${useLocalStorage.getItemFromLocalStorage('jwt_auth_token')}`,'username' : JSON.username}))
             :
               dispatch(logoutAction());
         })
