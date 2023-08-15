@@ -1,7 +1,7 @@
 import {useEffect, useState , useMemo} from 'react';
 import styles from './styles.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { openLoginModal } from '../../features/modal/loginModalSlice';
+import { closeLoginModal, openLoginModal } from '../../features/modal/loginModalSlice';
 
 export default function ProfileComponent() {
 
@@ -13,10 +13,14 @@ export default function ProfileComponent() {
     const dpUploadAPI = 'http://localhost:5000/dpupload'
 
     useEffect(() => {
-        if(isLoggedIn === false){
+        isLoggedIn === false
+        ?
             setTimeout(() => {
                 dispatch(openLoginModal());
-            },50)}
+            },5)
+        :
+        dispatch(closeLoginModal());
+        
     },[isLoginModalOpen , isLoggedIn]);
 
     const formData = new FormData();

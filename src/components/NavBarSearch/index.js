@@ -1,5 +1,6 @@
 import { useEffect, useState , useMemo } from "react";
 import styles from './styles.module.css';
+import Link from "next/link";
 
 export default function NavBarSearch({searchRes , setSearchRes , searchText, setSearchText}) {
 
@@ -43,9 +44,9 @@ export default function NavBarSearch({searchRes , setSearchRes , searchText, set
             {
                 searchRes?.map((item) => {
                     return (
-                        <div key={item} className={styles.eachSearchResultCont}>
+                        <Link key={item} href={`/profile/${item}`} className={styles.eachSearchResultCont}>
                             <p className={styles.eachSearchResult}>@{item}</p>
-                        </div>
+                        </Link>
                     )
                 })
             }

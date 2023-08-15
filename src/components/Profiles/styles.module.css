@@ -1,11 +1,125 @@
-.wholeCont{
+.wholeCont {
     width: 100%;
-    height: 100vh;
+    min-height: 200vh;
     background-color: #ffffff;
-    border: 1px solid #ffffff;
+    background-image: url('../../../public/homePageBackground.jpeg');
+    background-position: top;
+    background-attachment: fixed;
 }
 
-.text{
-    font-size: 4rem;
-    color: #000000;
+.block {
+    position: fixed;
+    width: 100%;
+    height: 10vh;
+    background-color: #ffffff;
+}
+
+.infoCard {
+    position: sticky;
+    width: 20%;
+    min-height: 50vh;
+    top: 45vh;
+    left: 10vh;
+    margin-bottom: 5vh;
+    /* background-color: transparent;*/
+    border-radius: 12px;
+    /*
+    background: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4.5px);
+    -webkit-backdrop-filter: blur(4.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    -webkit-box-shadow: 0px 0px 20px -12px rgba(255, 255, 255, 1);
+    -moz-box-shadow: 0px 0px 20px -12px rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 20px -12px rgba(255, 255, 255, 1);*/
+    background-color: #ffffff;
+}
+
+.profileInformation {
+    position: relative;
+    width: 70%;
+    min-height: 90vh;
+    top: 10vh;
+    left: 27.5%;
+    background-color: #ffffff;
+    border-radius: 12px;
+}
+
+.imageCont {
+    position: absolute;
+    width: 30vh;
+    height: 30vh;
+    top: -15%;
+    left: 10vh;
+    border-radius: 50%;
+    border-bottom: 2.5px dashed rgb(230, 52, 52);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dpImage {
+    width: 95%;
+    height: 95%;
+    border-radius: 50%;
+}
+
+.uploadBtnCont {
+    position: absolute;
+    width: 8.5vh;
+    height: 8.5vh;
+    left: 22vh;
+    top: 22vh;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.uploadBtn {
+    position: absolute;
+    width: 8.5vh;
+    height: 8.5vh;
+    visibility: hidden;
+}
+
+.addDpImage {
+    width: 8.5vh;
+    height: 8.5vh;
+}
+
+.addDpImage:active {
+    width: 7vh;
+    height: 7vh;
+    margin: 0.75vh;
+}
+
+.allInfoCont {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.nameCont {
+    position: relative;
+    width: 60%;
+    height: 20vh;
+    left: 40vh;
+    margin-top: 5vh;
+    padding-left: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.profileName {
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: #6a6a6a;
+    margin: 0;
+}
+
+.tagLine {
+    font-size: 1.25rem;
+    color: #6a6a6a;
+    margin: 0;
 }
