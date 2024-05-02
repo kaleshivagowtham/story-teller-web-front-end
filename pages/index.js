@@ -1,7 +1,9 @@
 import styles from '../styles/Home.module.css'
+import Head from 'next/head';
 import HomeComponent from '../src/components/HomeComponent';
 import HomeNotLoggedIn from '../src/components/HomeNotLoggedIn';
 import { useSelector } from 'react-redux';
+import LoadingComponent from '../src/components/LoadingComponent';
 
 export default function Home() {
 
@@ -9,11 +11,15 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
+      {/* <Head>
+        <body className={styles.theBody}/>
+      </Head> */}
       {/* {isLoggedIn ?
         <HomeComponent />
         : */}
         <HomeNotLoggedIn />
       {/* } */}
+      {/* <LoadingComponent /> */}
     </div>
   )
 }

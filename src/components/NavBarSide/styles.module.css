@@ -14,8 +14,8 @@
     /* background: #4e54c8;
     background: #3E5151;
     background: #000000; */
-        /* background: -webkit-linear-gradient(to right, #434343, #000000); */
-        /* background: linear-gradient(to right, #434343, #000000); */
+    /* background: -webkit-linear-gradient(to right, #434343, #000000); */
+    /* background: linear-gradient(to right, #434343, #000000); */
     top: 0;
     left: 0;
     cursor: pointer;
@@ -181,4 +181,14 @@
     }
 }
 
-@media screen and (max-width : 400px) {}
+@media screen and (max-width : 425px) {
+    /* .sideCont {
+        position: fixed;
+        width: 50%;
+        height: 8vh;
+        bottom: 1px;
+    }
+    .opened {
+        display: none;
+    } */
+}

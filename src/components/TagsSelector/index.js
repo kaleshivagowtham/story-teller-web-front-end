@@ -25,7 +25,7 @@ export default function TagsSelector({selectedTags,setSelectedTags,trendingTags}
                 <div className={styles.arrowsCont}>
                     <p className={styles.arrows}>{leftArrow}</p>
                 </div>
-                <div className={styles.tagsCont}>
+                <div className={styles.tagsInnerCont}>
                     {trendingTags.map((eachTag) => {
                             return (
                                 <div key={eachTag} className={styles.eachTagCont} onClick={e => selectTagAddHandler(eachTag)}

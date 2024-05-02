@@ -5,26 +5,15 @@ import SearchComponent from '../SearchComponent/indix';
 import NavBarShare from '../NavBarShare';
 import { useDispatch , useSelector } from 'react-redux';
 
-export default function NavBarTop() {
+export default function NavBarTop({scrolled}) {
 
     const dispatch = useDispatch();
     
-
-    const [scrolled , setScrolled] = useState(false);
     const [openSearchModal , setOpenSearchModal] = useState(false);
     const [searchText , setSearchText] = useState('');
 
-    // useEffect(() => {
-    //     if(typeof(window) != undefined )
-    //         console.log(localStorage.getItem('jwt_auth_token'));
-        
-    // },[]);
-
-    if(typeof window === undefined && window.scrollY > 100)
-        setScrolled(true);
-
     return (
-        <div className={styles.wholeCont} onClick={e => setOpenSearchModal(false)} >
+        <div className={`${styles.wholeCont}`} onClick={e => setOpenSearchModal(false)} >
             {/* style={{backgroundColor : scrolled ? "#ffffff" :"transparent"}} */}
                 <Link href='/' className={styles.logoCont}>
                     <img src='/logo.png' alt='logo'  className={styles.logoImg} />

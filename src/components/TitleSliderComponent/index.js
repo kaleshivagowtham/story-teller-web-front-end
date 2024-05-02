@@ -32,7 +32,7 @@ export default function TitleSliderComponent({trending}) {
     useEffect(() => {
         setSlideStyle({
         transform : `translate(${-(100)})%`,
-        backgroundImage:`url( ${trending[currIndex].image} )`,
+        backgroundImage:`url( ${trending[currIndex]?.image} )`,
         // backgroundSize : `${a} ${b}`,
         transition : `translate(${-(100)})% ease-out 1s`})
     },[currIndex]);
@@ -59,9 +59,9 @@ export default function TitleSliderComponent({trending}) {
                 <div className={ styles.titleContSlideIn } ref={currImg}
                     style={slideStyle}>
                     <div className={styles.titleInfoCont}>
-                        <h3 className={styles.eachTitle}>{trending[currIndex].title}</h3>
+                        <h3 className={styles.eachTitle}>{trending[currIndex]?.title}</h3>
                         <div className={styles.eachDescCont}>
-                            <p className={styles.eachDesc}>{trending[currIndex].desc}</p>
+                            <p className={styles.eachDesc}>{trending[currIndex]?.desc}</p>
                         </div>
                     </div>
                 </div>
