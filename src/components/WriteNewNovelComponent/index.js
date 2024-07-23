@@ -12,7 +12,7 @@ import { useRouter } from 'next/router';
 import { storage } from '../../utils/firebaseConfig';
 import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
 
-export default function WriteBlogComponent() {
+export default function WriteNewNovelComponent() {
 
     const router = useRouter();
     const paraText = useRef();
@@ -173,14 +173,16 @@ export default function WriteBlogComponent() {
         }
     }
 
-    // const deleteTagHandler = (e,thisTag) => {
-    //     const temp = {...newRecipe};
-    //     console.log(thisTag);
-    //     temp.tags.filter( tag => {
-    //         return tag === thisTag;
-    //     })
-    //     setNewRecipe(temp);
-    // }
+    const deleteTagHandler = async (tagIndex) => {
+        let temp = {...newStory};
+        console.log(temp);
+        await Promise.all (
+            temp.tags = temp?.tags?.filter( (tag, i) => {
+                return i != tagIndex;
+            })
+        )
+        setNewStory(temp);
+    }
 
     const ingredientsClickHandler = (e) => {
         e.stopPropagation();
@@ -259,7 +261,7 @@ export default function WriteBlogComponent() {
                             return (
                                 <div key={eachTag} className={styles.eachTagCont} onClick={tagsClickHandler}>
                                     <p className={styles.eachTagText}>{eachTag}</p>
-                                    <img className={styles.crossImg} onClick={e => deleteTagHandler(e,eachTag)}
+                                    <img className={styles.crossImg} onClick={e => deleteTagHandler(i)}
                                         src='/crossIcon.png' alt='close button icon'
                                     />
                                 </div>
@@ -293,7 +295,7 @@ export default function WriteBlogComponent() {
                 {currFocus === 'paragraph' || newStory.paras === ''
                   ?
                     <textarea onChange={e => paraWriter(e)} name='paragraph' onClick={e => {e.stopPropagation(),setCurrFocus('paragraph')}}
-                        placeholder='Start typing here' value={newStory.paras} ref={paraText}
+                        placeholder='Story description...' value={newStory.paras} ref={paraText}
                         // style={{height : `${paraText.current.scrollHeight+"px"}`}}
                         className={`${styles.paraTextArea} ${newStory.paras === '' || currFocus === 'paragraph'  ? styles.paraTextAreaFocus : ''}`}
                     />

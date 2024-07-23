@@ -26,14 +26,13 @@ export default function TitleSliderComponent({trending}) {
         timerRef.current ? clearTimeout(timerRef.current) : null;
         timerRef.current = setTimeout(() => {
             moveRight();
-        },[3000])
+        },[5000])
     },[currIndex]);
 
     useEffect(() => {
         setSlideStyle({
         transform : `translate(${-(100)})%`,
-        backgroundImage:`url( ${trending[currIndex]?.image} )`,
-        // backgroundSize : `${a} ${b}`,
+        backgroundImage:`url( ${trending[currIndex]?.titleImg} )`,
         transition : `translate(${-(100)})% ease-out 1s`})
     },[currIndex]);
 
@@ -57,11 +56,13 @@ export default function TitleSliderComponent({trending}) {
             </div>
             {
                 <div className={ styles.titleContSlideIn } ref={currImg}
-                    style={slideStyle}>
+                    style={slideStyle}
+                        // style={{backgroundImage:`url(${trending[currIndex]?.titleImg})`}}                    
+                    >
                     <div className={styles.titleInfoCont}>
                         <h3 className={styles.eachTitle}>{trending[currIndex]?.title}</h3>
                         <div className={styles.eachDescCont}>
-                            <p className={styles.eachDesc}>{trending[currIndex]?.desc}</p>
+                            <p className={styles.eachDesc}>{trending[currIndex]?.paras}</p>
                         </div>
                     </div>
                 </div>

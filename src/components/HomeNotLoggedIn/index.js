@@ -41,11 +41,13 @@ export default function HomeNotLoggedIn() {
                     {
                         trending?.map((item) => {
                             return (
-                                <Link key={item} href={`story/${item.title.replace(/ /g,'-')}`} className={styles.eachRecommendedBlog}>
-                                    <img src={item.image} className={styles.eachRecommendedBlogImg} />
+                                <Link key={item} href={'/novel/' + item.title.replace(/ /g,'-')} className={styles.eachRecommendedBlog}>
+                                    <div className={styles.eachRecommendedBlogImgCont}>
+                                        <img src={item?.titleImg} className={styles.eachRecommendedBlogImg} />
+                                    </div>
                                     <div className={styles.eachRecommendedBlogContent}>
-                                        <p className={styles.eachRecommendedBlogTitle} >{item.title}</p>
-                                        <p className={styles.eachRecommendedBlogDesc} >{item.desc}</p>
+                                        <p className={styles.eachRecommendedBlogTitle} >{item?.title}</p>
+                                        <p className={styles.eachRecommendedBlogDesc} >{item?.paras}</p>
                                     </div>
                                 </Link>
                             )

@@ -56,9 +56,20 @@
     border-bottom: 2px solid #6d6d6d;
 }
 
-.eachRecommendedBlogImg{
+.eachRecommendedBlogImgCont {
     width: 25%;
-    height: auto;
+    height: 100%;
+    border: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eachRecommendedBlogImg{
+    width: auto;
+    max-width: 100%;
+    height: 100%;
     border-radius: 12px;
 }
 
@@ -82,9 +93,9 @@
 
 .eachRecommendedBlogDesc{
     width: 100%;
-    height: 15vh;
+    height: 14vh;
     margin: 0;
-    color: #6d6d6d6d;
+    color: #0505056c;
     overflow-y: hidden;
     text-overflow: ellipsis;
 }
@@ -115,6 +126,12 @@
 
 @media screen and (max-width : 450px) {
     .eachRecommendedBlog{
-        height: 10vh;
+        height: 15vh;
+    }
+}
+
+@media screen and (max-width : 425px) {
+    .contentCont {
+        width: 100%;
     }
 }

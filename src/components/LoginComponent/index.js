@@ -97,7 +97,8 @@ export default function LoginComponent() {
             console.log("Resp: ",resp.data);
             if(resp.data.loginSuccessFul === 'Login successful')
             {
-                dispatch(loginAction({username : username}));
+                // console.log('username: ', resp.data.username);
+                dispatch(loginAction({username : resp.data.username}));
                 dispatch(tokenAction(resp.data.accessToken));
                 dispatch(closeLoginModal());
                 setLoggedIn(true);

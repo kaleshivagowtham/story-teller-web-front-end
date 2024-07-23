@@ -47,18 +47,33 @@ export default function Layout({children}) {
         })   
     })
 
-    const checkAuth =  useMemo(() => {
+    useEffect(() => {
+        if(window !== undefined) {
+            console.log(window.innerWidth)
+        }
+            
+    },[])
+
+    useMemo(() => {
+        if(jwt === undefined)
+            return;
+
         if(isLoggedIn === false) {
-            const response = axios.post(checkLoginURL , {
-                jwt_auth_token : jwt
-            }).then(resp => {
-                if(resp.data.authorized === true){
-                    dispatch(loginAction(resp.data.user));
-                    // return (<NotificationComponent message='Login Successful' />)
-                }
-            }).catch((err) => {
-                console.log("ERROR : ",err);
+            axios.get(checkLoginURL , {
+            headers : {
+                "Content-Type" : "application/json",
+                "Authorization" : useLocalStorage.getItemFromLocalStorage("jwt_auth_token")
+            }
             })
+            .then(resp => {
+                if(resp.data.message === 'loggedIn'){
+                        dispatch(loginAction({username : resp.data.username}));
+                        console.log("RESP: ",resp.data)
+                    }
+            })
+            .catch(err => 
+                console.log(err)
+            );
         }
     },[jwt])
 
@@ -73,7 +88,7 @@ export default function Layout({children}) {
     },[])
 
     return(
-        <div onClick={e => allHandlers(e)}>
+        <div onClick={e => allHandlers(e)} styles={{border:'3px solid red'}}>
             <Head>
                 <title>StoryTeller</title>
                 <link rel="logo icon" href="/logo.png" />
@@ -91,6 +106,7 @@ export default function Layout({children}) {
             {   isSignupModalOpen && <SignupComponent />    }
             <div className={styles.layoutCont}>
                 <main>{children}</main>
+                {/* <main></main> */}
             </div>
             <FooterComponent />
         </div>

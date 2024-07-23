@@ -19,7 +19,6 @@ export default function StoryComponent({storyTitle}) {
     const {isLoggedIn, userName} = useSelector(store => store.loggedIn);
 
 
-    // const [story, setStory] = useState({});
     const [currFocus, setCurrFocus] = useState('');
     const [s,b] = useState();
 
@@ -127,7 +126,6 @@ export default function StoryComponent({storyTitle}) {
                 <div className={styles.imageCont}>
                     <img src={story.titleImg} alt='Title Image' className={styles.titleImg}/>
                 </div>
-            
                 <p className={styles.paras}>{story.paras}</p>
             </div>
             {story.writerId === userName && <button className={styles.updateBtn} >Update</button> }

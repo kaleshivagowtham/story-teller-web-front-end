@@ -20,6 +20,11 @@ export default function NavBarWriteBlog() {
                     onClick={e => dispatch(setSelected('writeBlog'))}>
                     <p className={styles.eachOption}>My Stories</p>
                 </Link>
+                <p className={styles.eachOption} style={{fontWeight:'600', margin: '5vh 0 2vh 0'}}>Continue writing</p>
+                <Link href='/mystories' className={styles.eachOptionCont}
+                    onClick={e => dispatch(setSelected('writeBlog'))}>
+                    <p className={styles.eachOption}>My Stories</p>
+                </Link>
             </div>
         </div>
     )

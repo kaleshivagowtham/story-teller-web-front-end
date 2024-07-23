@@ -1,4 +1,5 @@
 .wholeCont {
+    position: relative;
     width: 100%;
     min-height: 200vh;
     background-color: #ffffff;

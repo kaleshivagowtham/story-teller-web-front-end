@@ -1,0 +1,75 @@
+.wholeCont {
+    position: relative;
+    height: 4.5vh;
+    width: 4.5vh;
+    margin-left: 1.5vh;
+    /* aspect-ratio: 1/1; */
+    /* border: 1px solid rgb(231, 65, 65); */
+}
+
+.dot {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.d1 {
+    animation: d1Anime 2s infinite ease-in-out;
+}
+
+.d2 {
+    animation: d1Anime 2s 0.05s infinite ease-in-out;
+}
+
+.d3 {
+    animation: d1Anime 2s 0.1s infinite ease-in-out;
+}
+
+.d4 {
+    animation: d1Anime 2s 0.15s infinite ease-in-out;
+}
+
+.d5 {
+    animation: d1Anime 2s 1s infinite ease-in-out;
+}
+
+.d6 {
+    animation: d1Anime 2s 1.05s infinite ease-in-out;
+}
+
+.d7 {
+    animation: d1Anime 2s 1.1s infinite ease-in-out;
+}
+
+.d8 {
+    animation: d1Anime 2s 1.15s infinite ease-in-out;
+}
+
+@keyframes d1Anime {
+    0% {
+        top: 0;
+        left: 0;
+    }
+
+    25% {
+        top: 0;
+        left: 4vh;
+    }
+
+    50% {
+        top: 4vh;
+        left: 4vh;
+    }
+
+    75% {
+        top: 4vh;
+        left: 0;
+    }
+
+    100% {
+        top: 0;
+        left: 0;
+    }
+}

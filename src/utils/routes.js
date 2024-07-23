@@ -1,8 +1,8 @@
 
 export const routes = {
 
-    baseUrl : 'http://localhost:5000',
-    // baseUrl : 'https://recipes-server-czdy.onrender.com',
+    // baseUrl : 'http://localhost:5000',
+    baseUrl : 'https://recipes-server-czdy.onrender.com',
     api : {
 
         login : '/signin',
@@ -21,6 +21,28 @@ export const routes = {
 
         checkLogin : '/checkLogin',
 
-        addStory : '/newstory'
+        addStory : '/newstory',
+
+        getStory : '/getStory',
+
+        checkLiked : '/checkLinked',
+
+        checkComment : '/checkComment',
+
+        getAllChapters : '/getAllChapters',
+
+        getChapter : '/getChapter',
+
+        addChapter : '/addChapter',
+
+        updateChapter : '/updateChapter',
+
+        newComment : '/newComment', 
+
+        replyComment : '/replyComment',
+
+        getComment : '/getComment',
+
+        deleteComment : '/deleteComment'
     }
 }

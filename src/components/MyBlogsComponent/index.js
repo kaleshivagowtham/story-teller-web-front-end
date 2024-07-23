@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import styles from './styles.module.css';
 import { setSelected } from '../../features/modal/navbarSideSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { openLoginModal } from '../../features/modal/loginModalSlice';
+import useLocalStorage from '../../utils/useLocalStorage';
 
 export default function MyBlogsComponent() {
-
-    const {asPath} = useRouter();
 
     const dispatch = useDispatch();
 
@@ -15,6 +15,8 @@ export default function MyBlogsComponent() {
 
     const {isLoggedIn , userName} = useSelector(store => store.loggedIn);
     const {isLoginModalOpen} = useSelector(store => store.loginModal)
+
+    console.log('userName: ', userName)
 
     useEffect(() => {
         if(isLoggedIn === false){
@@ -49,13 +51,15 @@ export default function MyBlogsComponent() {
     const [myStories , setMyStories] = useState(['']);
             
     useEffect(() => {
+
         const response = fetch(authorStoriesUrl , {
             method : 'POST',
             body : JSON.stringify({
-                "writerId" : 'shivakale'
+                "writerId" : userName
             }),
             headers : {
-                "Content-Type" : "application/json"
+                "Content-Type" : "application/json",
+                "Authorization" : useLocalStorage.getItemFromLocalStorage("jwt_auth_token")
             }
         })
         .then(res => res.json())
@@ -64,7 +68,7 @@ export default function MyBlogsComponent() {
             console.log(myStories);
         })
         .catch(err => console.log(err));
-    },[])
+    },[userName])
 
     return (
         <div className={styles.wholeCont}>
@@ -76,17 +80,20 @@ export default function MyBlogsComponent() {
                     {
                         myStories?.map((item) => {
                             return (
-                                <div key={item} className={styles.eachBlogCont}>
+                                <Link key={item} className={styles.eachBlogCont}
+                                    href={item.title?.replace(/ /g, '-') + '/'}
+                                >
                                     <div className={styles.eachBlogImgCont}>
-                                        <img src={item.titleImg == null ? item.titleImg : '/homePageBackground.jpeg'} alt='Title image' className={styles.eachBlogImg} />
+                                        <img src={item?.titleImg === null ? item?.titleImg : '/homePageBackground.jpeg'} alt='Title image' className={styles.eachBlogImg} />
                                     </div>
                                     <div className={styles.eachBlogTextCont}>
-                                        <h4 className={styles.blogTitle}>{item.title}</h4>
+                                        <h4 className={styles.blogTitle}>{item?.title}</h4>
+                                        <p className={styles.blogContent}>{item?.writerId}</p>
                                         <div className={styles.eachBlogContentCont}>
-                                            <p className={styles.blogContent}>{item.paras}</p>
+                                            <p className={styles.blogContent}>{item?.paras}</p>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                             )
                         })
                     }
