@@ -1,0 +1,83 @@
+.wholeCont {
+    position: relative;
+    width: 100%;
+    min-height: 5vh;
+    left: 1.5vh;
+    padding-left: 1.5vh;
+    padding-bottom: 1vh;
+    border-left: 1px solid rgb(95, 91, 91);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.commentBy {
+    font-size: 1rem;
+    color: #ffffff;
+    gap: 1vh;
+    font-weight: 500;
+    margin: 0;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.dp {
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+}
+
+.commentText {
+    width: calc(100% - 10vh);
+    /* border: 1px solid black; */
+    font-size: 1rem;
+    color: #ffffff;
+    gap: 1vh;
+    margin: 0;
+    margin-left: 6vh;
+}
+
+.optionsCont {
+    width: 100%;
+    height: 6vh;
+    margin-bottom: 1vh;
+    padding-left: 2%;
+    gap: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.options {
+    width: 10vh;
+    columns: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+.options:active {
+    font-size: 0.85rem;
+}
+
+.eachCommentCont {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* @media screen and (max-width: 425px) {
+    .wholeCont {
+        left: 1.5%;
+        padding-left: 1.5%;
+    }
+} */

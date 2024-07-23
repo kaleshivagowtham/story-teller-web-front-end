@@ -1,15 +1,31 @@
-.wholeCont{
+.loadingComponentCont {
     position: fixed;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
-    justify-content: center;
     align-items: center;
-    z-index: 11;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 100;
 }
 
-.loadingCont{
-    width: 15vh;
-    height: auto;
+.loader {
+    border-radius: 12px;
+    background-color: #004f3f;
+    animation: loadingAnime 5s infinite ease-in-out;
+}
+
+@keyframes loadingAnime {
+    0% {
+        width: 35vh;
+        height: 10vh;
+    }
+    50% {
+        width: 10vh;
+        height: 35vh;
+    }
+    100% {
+        width: 35vh;
+        height: 10vh;
+    }
 }

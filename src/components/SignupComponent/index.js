@@ -158,6 +158,7 @@ export default function SignupComponent() {
                             <img src='/demoDpImg.png' className={styles.authImg}/>
                             <p className={styles.eachAuthText}>email</p>
                         </div> */}
+                        
                         <p className={styles.alreadyRegText}>Already registered?</p>
                         <div className={styles.loginCont}>
                             <p className={styles.loginContText} onClick={e => {dispatch(closeSignupModal()), dispatch(openLoginModal())}}>Login</p>

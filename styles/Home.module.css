@@ -1,3 +1,29 @@
+.theBody {
+    width: 100%;
+    height: 100vh;
+}
+
+/* width */
+.theBody::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+.theBody::-webkit-scrollbar-track {
+    background: #c9fff4;
+}
+
+/* Handle */
+.theBody::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    background: #00705a;
+}
+
+/* Handle on hover */
+.theBody::-webkit-scrollbar-thumb:hover {
+    background: #1faa49;
+}
+
 .container{
     width: 100%;
     min-height: 100vh;
@@ -12,4 +38,12 @@
     top: 10vh;
     display: flex;
     flex-direction: column;
+}
+
+@media screen and (max-width: 425px) {
+    
+    .layoutCont {
+        width: 100%;
+        margin: 0;
+    }
 }

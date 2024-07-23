@@ -2,89 +2,31 @@ import { useEffect,useState,useMemo } from 'react';
 import styles from './styles.module.css';
 import TagsSelector from '../TagsSelector';
 import TitleSliderComponent from '../TitleSliderComponent';
+import { routes } from '../../utils/routes';
+import Link from 'next/link';
+import axios from 'axios';
 
 export default function HomeNotLoggedIn() {
 
-    const trendingTitleAPI = 'http://localhost:5000/trending';
+    const trendingTitleAPI = `${routes.baseUrl}${routes.api.trending}`;
+    // console.log(trendingTitleAPI)
 
-    const [trending , setTrending] = useState([
-                                            {
-                                                title : 'abcdefg1',
-                                                image : '/home-title.avif',
-                                                desc : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-                                            },
-                                            {
-                                                title : 'abcdefg2',
-                                                image : '/demoDpImg.png',
-                                                desc : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-                                            },
-                                            {
-                                                title : 'abcdefg3',
-                                                image : '/home-title.jpg',
-                                                desc : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-                                            },
-                                            {
-                                                title : 'abcdefg4',
-                                                image : '/homePageBackground.jpeg',
-                                                desc : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-                                            },
-                                            {
-                                                title : 'abcdefg5',
-                                                image : '/libImg.jpeg',
-                                                desc : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-                                            },
-                                            {
-                                                title : 'abcdefg6',
-                                                image : '/demoDpImg.png',
-                                                desc : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-                                            },
-                                        ]);
-    const [recommendedBlogs, setRecommendedBlogs] = useState([
-                                                {
-                                                title : 'abcdefg1',
-                                                image : '/home-title.avif',
-                                                desc : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-                                            },
-                                            {
-                                                title : 'abcdefg2',
-                                                image : '/demoDpImg.png',
-                                                desc : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-                                            },
-                                            {
-                                                title : 'abcdefg3',
-                                                image : '/home-title.jpg',
-                                                desc : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-                                            },
-                                            {
-                                                title : 'abcdefg4',
-                                                image : '/homePageBackground.jpeg',
-                                                desc : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-                                            },
-                                            {
-                                                title : 'abcdefg5',
-                                                image : '/libImg.jpeg',
-                                                desc : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-                                            },
-                                            {
-                                                title : 'abcdefg6',
-                                                image : '/demoDpImg.png',
-                                                desc : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-                                            },
-    ]);
+    const [trending , setTrending] = useState([ ]);
+    const [recommendedBlogs, setRecommendedBlogs] = useState([{title:'Tbc def ghi'} ]);
 
     const [trendingTags , setTrendingTags] = useState(['abssssc','desssssssssf','ghi','jkl','mssssssssno','pssssssqr','stu','vssssssswx','yzsssssss','abssssssssc','def','ghssssssssi','jsssssskl','mno','pssssssssssssssqr','stu','sssssssvwx','yz','abc','def','ghi','jkl','mno','pqr','stu','vwx','yz']);
     const [selectedTags, setSelectedTags] = useState([]);
 
     useEffect(() => {
-        const response = fetch( trendingTitleAPI)
-        .then(res => res.json)
-        .then(JSON => {
-            if(JSON.trending)
-            setTrending(JSON.trending);
-            if(JSON.trendingTags)
-            setTrendingTags(JSON.trendingTags);
+        const response = axios.get( trendingTitleAPI)
+        .then(resp => {
+            console.log("data: ", resp.data);
+            if(resp.data)
+                setTrending(resp.data);
+            if(resp.data.trendingTags)
+                setTrendingTags(resp.data.trendingTags);
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log("Error Here: ",err.message))
     },[]);
 
     return (
@@ -97,15 +39,17 @@ export default function HomeNotLoggedIn() {
                     <h3 className={styles.trendingBlogsTitle} >Trending Blogs</h3>
                     <div className={styles.recommendedBlogsCont}>
                     {
-                        recommendedBlogs.map((item) => {
+                        trending?.map((item) => {
                             return (
-                                <div key={item} className={styles.eachRecommendedBlog}>
-                                    <img src={item.image} className={styles.eachRecommendedBlogImg} />
-                                    <div className={styles.eachRecommendedBlogContent}>
-                                        <p className={styles.eachRecommendedBlogTitle} >{item.title}</p>
-                                        <p className={styles.eachRecommendedBlogDesc} >{item.desc}</p>
+                                <Link key={item} href={'/novel/' + item.title.replace(/ /g,'-')} className={styles.eachRecommendedBlog}>
+                                    <div className={styles.eachRecommendedBlogImgCont}>
+                                        <img src={item?.titleImg} className={styles.eachRecommendedBlogImg} />
                                     </div>
-                                </div>
+                                    <div className={styles.eachRecommendedBlogContent}>
+                                        <p className={styles.eachRecommendedBlogTitle} >{item?.title}</p>
+                                        <p className={styles.eachRecommendedBlogDesc} >{item?.paras}</p>
+                                    </div>
+                                </Link>
                             )
                         })
                     }

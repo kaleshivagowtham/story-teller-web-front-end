@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import WriteBlogComponent from '../src/components/WriteBlogComponent';
+import WriteNewNovelComponent from '../src/components/WriteNewNovelComponent';
 
 export default function newblog() {
 
     return(
         <div>
-            <WriteBlogComponent />
+            <WriteNewNovelComponent />
         </div>
     )
 }
